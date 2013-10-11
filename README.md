@@ -4,4 +4,4 @@ The main GitHub pages contain a few links to major 1&1 landing pages.
 
 ## TODO
 
-* Find a way (GitHub API) to automatically list all repos with a gh-pages branch, and create a documentation index here.
+* Automate update of the list for all repos with a gh-pages branch.
