@@ -1,6 +1,7 @@
 #! /bin/bash
 # http -j --pretty all https://api.github.com/users/1and1/repos | less -R
 
+# use "-c" to avoid hitting the API rate limiting during development and testing
 cached=true; test "$1" = "-c" && shift || cached=false
 $cached || rm "/tmp/gh_pages_index-$USER"*".txt"
 
@@ -9,7 +10,6 @@ $cached && test -f "$tmpidx" \
     || http -j --pretty format "https://api.github.com/users/1and1/repos" | grep "branches_url" >"$tmpidx"
 
 declare -a lines
-#sort "$tmpidx" | tee /dev/stderr | readarray lines
 readarray lines <"$tmpidx"
 echo "<!-- GH Pages Index: ${#lines[@]} projects found / Last updated $(date +'%Y-%m-%d %H:%M:%S') -->"
 echo "        <ul>"
