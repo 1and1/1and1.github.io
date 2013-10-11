@@ -11,7 +11,7 @@ $cached && test -f "$tmpidx" \
 declare -a lines
 #sort "$tmpidx" | tee /dev/stderr | readarray lines
 readarray lines <"$tmpidx"
-echo "<!-- GH Pages Index: ${#lines[@]} projects found -->"
+echo "<!-- GH Pages Index: ${#lines[@]} projects found / Last updated $(date +'%Y-%m-%d %H:%M:%S') -->"
 echo "        <ul>"
 
 for link in "${lines[@]}"; do
